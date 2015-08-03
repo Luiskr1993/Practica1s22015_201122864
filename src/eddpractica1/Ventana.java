@@ -8,6 +8,10 @@ package eddpractica1;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 /**
  *
  * @author Luiskr
@@ -15,6 +19,7 @@ import javax.swing.JButton;
 public class Ventana extends javax.swing.JFrame {
 
 Lista lista = new Lista();
+
 //Image mario = new ImageIcon("mario.png").getImage();
     
     
@@ -200,12 +205,21 @@ Lista lista = new Lista();
             }
         });
 
-        jButton1.setText("jButton1");
+        jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 578, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(46, 46, 46))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -215,15 +229,11 @@ Lista lista = new Lista();
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nombreObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
+                        .addGap(20, 20, 20)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 79, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addGap(46, 46, 46))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,12 +245,12 @@ Lista lista = new Lista();
                 .addGap(31, 31, 31)
                 .addComponent(nombreObjeto, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -258,7 +268,7 @@ Lista lista = new Lista();
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -269,18 +279,18 @@ Lista lista = new Lista();
     private void Boton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton1ActionPerformed
          
          jLabel2.setIcon(new ImageIcon(getClass().getResource("mario2.png")));
-         nombreObjeto.setText("Objeto Usuario");
+         nombreObjeto.setText("mario2.png");
          
     }//GEN-LAST:event_Boton1ActionPerformed
 
     private void Boton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton8ActionPerformed
         jLabel2.setIcon(new ImageIcon(getClass().getResource("hongo.png")));
-        nombreObjeto.setText("Objeto Hongo de Vida");
+        nombreObjeto.setText("hongo.png");
     }//GEN-LAST:event_Boton8ActionPerformed
 
     private void Boton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton9ActionPerformed
         jLabel2.setIcon(new ImageIcon(getClass().getResource("castillo.png")));
-        nombreObjeto.setText("Objeto Castillo");
+        nombreObjeto.setText("castillo.png");
     }//GEN-LAST:event_Boton9ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -289,33 +299,84 @@ Lista lista = new Lista();
 
     private void Boton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton2ActionPerformed
         jLabel2.setIcon(new ImageIcon(getClass().getResource("goomba.png")));
-        nombreObjeto.setText("Objeto Goomba");
+        nombreObjeto.setText("goomba.png");
     }//GEN-LAST:event_Boton2ActionPerformed
 
     private void Boton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton3ActionPerformed
        jLabel2.setIcon(new ImageIcon(getClass().getResource("koopa.png")));
-       nombreObjeto.setText("Objeto Koopa");
+       nombreObjeto.setText("koopa.png");
     }//GEN-LAST:event_Boton3ActionPerformed
 
     private void Boton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton4ActionPerformed
        jLabel2.setIcon(new ImageIcon(getClass().getResource("pared.png")));
-       nombreObjeto.setText("Objeto Pared");
+       nombreObjeto.setText("pared.png");
     }//GEN-LAST:event_Boton4ActionPerformed
 
     private void Boton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton5ActionPerformed
        jLabel2.setIcon(new ImageIcon(getClass().getResource("ficha.png")));
-       nombreObjeto.setText("Objeto Ficha");
+       nombreObjeto.setText("ficha.png");
     }//GEN-LAST:event_Boton5ActionPerformed
 
     private void Boton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton6ActionPerformed
         jLabel2.setIcon(new ImageIcon(getClass().getResource("suelo.png")));
-        nombreObjeto.setText("Objeto Suelo");
+        nombreObjeto.setText("suelo.png");
     }//GEN-LAST:event_Boton6ActionPerformed
 
     private void Boton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton7ActionPerformed
         jLabel2.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
-        nombreObjeto.setText("Objeto Piedra");
+        nombreObjeto.setText("piedra.png");
     }//GEN-LAST:event_Boton7ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String nombreImagen; //ruta de la imagen que se desea agregar
+       String nombreElemento; //nombre nuevo dado al elemento, por el usuario
+       
+       int x = 250;
+       int y = 0;
+       int y1 = 0;
+       nombreImagen = nombreObjeto.getText();
+       nombreElemento = jTextField1.getText();
+       
+       lista.insertar(nombreImagen, nombreElemento);
+       
+       Nodo temp;
+       temp = lista.primero;
+       
+       for(int i = 1; i <= lista.contadorNodos ; i++){
+           JLabel label = new JLabel();
+           
+           y1+=100;
+           
+           if(y1 > 650){
+               y1=100;
+               x=x+100;
+               if(x>1180){
+                   
+                   JScrollPane  barras = new JScrollPane(jPanel2);
+                   jPanel2.add(barras);
+                   
+                   
+               }
+           }
+           jPanel2.add(label);
+           label.setIcon(new ImageIcon(getClass().getResource(temp.nombreImagen)));
+           label.setBounds(x,y1,100,100);
+           
+           temp = temp.siguiente;
+           jTextField1.setText("");
+           jTextField1.setCursor(null);
+           //label.setLocation(x, y+100);
+       }
+       
+        System.out.println("\n-------------------------Lista de Elementos-----------------------------------------------\n");
+       lista.imprimir2();
+      
+       
+       
+       
+             
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

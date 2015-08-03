@@ -5,38 +5,36 @@
  */
 package eddpractica1;
 
-/**
- *
- * @author Luiskr
- */
-public class ListaCircular {
-     public Nodo primero;
-    public Nodo ultimo;
-    int contadorNodos;
+
+public class ListaMatriz {
     
-    public ListaCircular(){
+    NodoMatriz primero;
+    NodoMatriz ultimo;
+    int contadorColumnas;
+    
+    public ListaMatriz(){
+        
         this.primero = null;
         this.ultimo = null;
-        contadorNodos = 0;
+        this.contadorColumnas = 0;
     }
     
-    public void insertar(String nombreImagen, String nombreElemento){
-         Nodo nuevo;
-        nuevo = new Nodo(nombreImagen, nombreElemento);
+    public void insertar(int x, int y, String nombreImagen, String nombreElemento){
+        NodoMatriz nuevo;
+        nuevo = new NodoMatriz(x, y, nombreImagen, nombreElemento);
         
         if(primero == null){
             primero = nuevo;
-            primero.anterior = ultimo;
             ultimo = primero;
         }
         else
         {
             ultimo.siguiente = nuevo;
-            nuevo.siguiente = primero;
             nuevo.anterior = ultimo;
             ultimo = nuevo;
         }
         
-        contadorNodos++;
+        contadorColumnas++;
+        //System.out.println("Se insertó: ID: "+id +" Nombre: "+nombre);
     }
 }
