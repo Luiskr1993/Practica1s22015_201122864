@@ -27,6 +27,8 @@ public class NodoMatriz {
         
         this.nombreElemento = nombreElemento;
         this.nombreImagen = nombreImagen;
+        this.x = x;
+        this.y = y;
         
     }
 }
