@@ -5,17 +5,24 @@
  */
 package eddpractica1;
 
+import javax.swing.JLabel;
+
 
 public class ListaMatriz {
     
     NodoMatriz primero;
     NodoMatriz ultimo;
+    
+    ListaMatriz siguiente;
+    ListaMatriz anterior;
     int contadorColumnas;
     
     public ListaMatriz(){
         
         this.primero = null;
         this.ultimo = null;
+        this.anterior = null;
+        this.siguiente = null;
         this.contadorColumnas = 0;
     }
     
@@ -37,4 +44,6 @@ public class ListaMatriz {
         contadorColumnas++;
         //System.out.println("Se insertó: ID: "+id +" Nombre: "+nombre);
     }
+    
+   
 }

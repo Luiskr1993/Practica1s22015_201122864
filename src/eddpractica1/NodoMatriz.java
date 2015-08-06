@@ -5,8 +5,10 @@
  */
 package eddpractica1;
 
+import javax.swing.JLabel;
 
-public class NodoMatriz {
+
+public class NodoMatriz extends JLabel{
     
     NodoMatriz siguiente;
     NodoMatriz anterior;

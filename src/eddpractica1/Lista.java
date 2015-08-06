@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 public class Lista {
+    int id;
     public Nodo primero;
     public Nodo ultimo;
     int contadorNodos;
@@ -11,12 +12,14 @@ public class Lista {
     public Lista(){
         this.primero = null;
         this.ultimo = null;
-        contadorNodos = 0;
+        this.contadorNodos = 0;
+        this.id = 0;
     }
     
     public void insertar(String nombreImagen, String nombreElemento){
         Nodo nuevo;
-        nuevo = new Nodo(nombreImagen, nombreElemento);
+        id++;
+        nuevo = new Nodo(id,nombreImagen, nombreElemento);
         
         if(primero == null){
             primero = nuevo;
@@ -32,6 +35,35 @@ public class Lista {
         contadorNodos++;
         //System.out.println("Se insertó: ID: "+id +" Nombre: "+nombre);
     }
+    
+    public void eliminarInicio(){
+        Nodo temporal;
+        temporal = primero;
+        
+        if(temporal == null){
+            System.out.println("la lista esta vacia\n");
+        }
+        else{
+            primero = temporal.siguiente;
+            temporal = null;
+        }
+    }
+    public void eliminarFinal(){
+        Nodo temporal;
+        
+        
+        if(ultimo == null){
+            System.out.println("la lista esta vacia\n");
+        }
+        else{
+            
+            temporal = ultimo.anterior;
+            temporal.siguiente = null;
+            ultimo = temporal;
+        }
+    }
+    
+    
     
     public String imprimir(){
         String listado = "";

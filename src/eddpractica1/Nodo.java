@@ -9,9 +9,10 @@ public class Nodo {
     int id;
     String nombreImagen;
     String nombreElemento;
-    String nombre;
+    //int idElemento;
     
-    public Nodo(String nombreImagen, String nombreElemento){
+    public Nodo(int id,String nombreImagen, String nombreElemento){
+        this.id = id;
         this.nombreElemento = nombreElemento;
         this.nombreImagen = nombreImagen;
         this.anterior = null;
