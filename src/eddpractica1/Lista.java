@@ -2,6 +2,7 @@ package eddpractica1;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Lista {
     int id;
@@ -47,6 +48,8 @@ public class Lista {
             primero = temporal.siguiente;
             temporal = null;
         }
+        
+        contadorNodos--;
     }
     public void eliminarFinal(){
         Nodo temporal;
@@ -61,9 +64,124 @@ public class Lista {
             temporal.siguiente = null;
             ultimo = temporal;
         }
+        
+        contadorNodos--;
     }
     
+    public void eliminarNodo(int id){
+        Nodo temp, temp2;
+        temp = primero;
+        
+        if(temp == null){
+                JOptionPane.showMessageDialog(
+               null,
+                "No se encontro el elemento a eliminar");
+        }
+        else{
+            while(temp.id != id){
+                if(temp.siguiente != null){
+                    temp = temp.siguiente;
+                }
+                
+                else if(temp.anterior == null){
+                        primero = null;
+                }
+              
+            }
+            
+            if(temp == primero){
+                primero = temp.siguiente;
+                
+            }
+            else{
+                
+                if(temp == ultimo){
+                    ultimo = temp.anterior;
+                    ultimo.siguiente = null;
+                }
+                else{
+                    temp2 = temp.siguiente;
+                    
+                    temp2.anterior = temp.anterior;
+                    temp.anterior.siguiente = temp2;
+                }
+                
+            }
+            
+            
+        }
+        
+        contadorNodos--;
+        
+    }
     
+    public Nodo buscar(int id){
+        Nodo actual;
+        actual = primero;
+        
+        if(primero == null){
+            return null;
+        }
+        else{
+            while(actual.id != id){
+                
+                if(actual.siguiente != null){
+                    actual = actual.siguiente;
+                }
+                else{
+                    return null;
+                }
+            }
+            
+            return actual;
+        }
+        
+    }
+    
+     public boolean buscarNodo(int id){
+        Nodo actual;
+        actual = primero;
+        
+        if(primero == null){
+            return false;
+        }
+        else{
+            while(actual.id != id){
+                
+                if(actual.siguiente != null){
+                    actual = actual.siguiente;
+                }
+                else{
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+    }
+    
+    public void modificar(int id, String nuevoNombre){
+        Nodo temp;
+        
+        temp = primero;
+        
+        while(temp.id != id){
+            if(temp.siguiente != null){
+                temp = temp.siguiente;
+            }
+            else{
+                 JOptionPane.showMessageDialog(
+               null,
+                "No se encontro el elemento buscado");
+            }
+        }
+        
+        temp.nombreElemento = nuevoNombre;
+         JOptionPane.showMessageDialog(
+               null,
+                "El nuevo nombre del elemento es: "+nuevoNombre);
+    }
     
     public String imprimir(){
         String listado = "";
