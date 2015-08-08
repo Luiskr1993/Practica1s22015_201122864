@@ -45,25 +45,32 @@ public class CrearTablero extends javax.swing.JFrame {
             apuntadorColumna = apuntadorFila.primero;
             
             for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
+               
                 jPanel1.add(apuntadorColumna);
                 apuntadorColumna.setBounds(x, y, 100, 100);
                 apuntadorColumna.setText("("+x+","+y+")");
-                //apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
                apuntadorColumna.setVisible(true);
                
                 
                 if(apuntadorColumna.siguiente != null){
                     apuntadorColumna = apuntadorColumna.siguiente;
                 }
+                
                 x+=100;
             }
             
+            
+            
             if(apuntadorFila.siguiente !=  null){
+                apuntadorColumna = null;
                 apuntadorFila = apuntadorFila.siguiente;
             }
             x=0;
             y-=100;
+            
         }
+        
         
        
         //jPanel1.add(matriz.primero.siguiente.primero);
@@ -207,6 +214,11 @@ public class CrearTablero extends javax.swing.JFrame {
         });
 
         jButton4.setText("AgregarFila");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -431,7 +443,94 @@ public class CrearTablero extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         matriz.agregarColumna();
+        
+        jPanel1.removeAll();
+        
+        int x = 0;
+        int y = 600;
+        
+        ListaMatriz apuntadorFila;
+        NodoMatriz apuntadorColumna;
+        
+        apuntadorFila = matriz.primero;
+        for(int i = 1; i<= matriz.contadorFilas; i++){
+            apuntadorColumna = apuntadorFila.primero;
+            
+            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
+               
+                jPanel1.add(apuntadorColumna);
+                apuntadorColumna.setBounds(x, y, 100, 100);
+                apuntadorColumna.setText("("+x+","+y+")");
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
+               apuntadorColumna.setVisible(true);
+               
+                
+                if(apuntadorColumna.siguiente != null){
+                    apuntadorColumna = apuntadorColumna.siguiente;
+                }
+                
+                x+=100;
+            }
+            
+            
+            
+            if(apuntadorFila.siguiente !=  null){
+                apuntadorColumna = null;
+                apuntadorFila = apuntadorFila.siguiente;
+            }
+            x=0;
+            y-=100;
+            
+        }
+        
+        
+        
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        matriz.agregarFila();
+        
+         jPanel1.removeAll();
+        
+        int x = 0;
+        int y = 600;
+        
+        ListaMatriz apuntadorFila;
+        NodoMatriz apuntadorColumna;
+        
+        apuntadorFila = matriz.primero;
+        for(int i = 1; i<= matriz.contadorFilas; i++){
+            apuntadorColumna = apuntadorFila.primero;
+            
+            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
+               
+                jPanel1.add(apuntadorColumna);
+                apuntadorColumna.setBounds(x, y, 100, 100);
+                apuntadorColumna.setText("("+x+","+y+")");
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
+               apuntadorColumna.setVisible(true);
+               
+                
+                if(apuntadorColumna.siguiente != null){
+                    apuntadorColumna = apuntadorColumna.siguiente;
+                }
+                
+                x+=100;
+            }
+            
+            
+            
+            if(apuntadorFila.siguiente !=  null){
+                apuntadorColumna = null;
+                apuntadorFila = apuntadorFila.siguiente;
+            }
+            x=0;
+            y-=100;
+            
+        }
+        
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
