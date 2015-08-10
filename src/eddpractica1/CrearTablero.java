@@ -47,9 +47,10 @@ public class CrearTablero extends javax.swing.JFrame {
             for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
                
                 jPanel1.add(apuntadorColumna);
+                apuntadorColumna.nombreImagen = "piedra.png";
                 apuntadorColumna.setBounds(x, y, 100, 100);
                 apuntadorColumna.setText("("+x+","+y+")");
-                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
                apuntadorColumna.setVisible(true);
                
                 
@@ -133,6 +134,8 @@ public class CrearTablero extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -195,14 +198,11 @@ public class CrearTablero extends javax.swing.JFrame {
 
         jLabel5.setText("0");
 
-        jTextField1.setText("0");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
             }
         });
-
-        jTextField2.setText("0");
 
         jLabel7.setText("nombre");
 
@@ -220,6 +220,15 @@ public class CrearTablero extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setText("jLabel8");
+
+        jButton5.setText("Jugar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -227,44 +236,52 @@ public class CrearTablero extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(18, 18, 18)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jRadioButton2)
-                                        .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel6))
-                        .addContainerGap(27, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3))
-                                .addGap(37, 37, 37)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField2))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(18, 18, 18)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jRadioButton2)
+                                                .addComponent(jRadioButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel6))
+                                .addContainerGap(27, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel7)
-                                .addGap(63, 63, 63)))
-                        .addGap(15, 15, 15))
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel2)
+                                            .addComponent(jLabel3))
+                                        .addGap(37, 37, 37)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextField2))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8)
+                                            .addComponent(jLabel7))
+                                        .addGap(63, 63, 63)))
+                                .addGap(15, 15, 15))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,9 +298,11 @@ public class CrearTablero extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel7)
-                        .addGap(24, 24, 24)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4)
@@ -299,7 +318,9 @@ public class CrearTablero extends javax.swing.JFrame {
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 131, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 15, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -323,10 +344,12 @@ public class CrearTablero extends javax.swing.JFrame {
         if(jRadioButton1.isSelected()){
             jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.ultimo.nombreImagen)));
             jLabel7.setText(lista.ultimo.nombreImagen);
+            jLabel8.setText(lista.ultimo.nombreElemento);
         }
         else if(jRadioButton2.isSelected()){
             jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.primero.nombreImagen)));
             jLabel7.setText(lista.primero.nombreImagen);
+            jLabel8.setText(lista.primero.nombreElemento);
         }
         
         jLabel1.setEnabled(true);
@@ -334,61 +357,103 @@ public class CrearTablero extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        int x;
-        int y;
-        
-        x = Integer.parseInt(jTextField1.getText());
-        y = Integer.parseInt(jTextField2.getText());
-        jPanel1.removeAll();
-        JButton casilla = new JButton();
-        jPanel1.add(casilla);
+        int idColumna = Integer.parseInt(jTextField1.getText());
+        int idFila = Integer.parseInt(jTextField2.getText());
         
         
-        casilla.setIcon(new ImageIcon(getClass().getResource(jLabel7.getText())));
         
-        casilla.setVisible(true);
-        //PRIMERA FILA
-        if(x==1 && y==1){
+        NodoMatriz tempColumna;
+        ListaMatriz tempFila;
+        
+        tempFila = matriz.primero;
+        
+        if(idFila > matriz.contadorFilas || idColumna > tempFila.contadorColumnas){
+            JOptionPane.showMessageDialog(
+                null,
+                "Coordenada incorrecta, no existe coordenada");
             
-            casilla.setBounds(0, 600, 100, 100);
+        
+        }
+        else{
+            if(tempFila == null){
+            JOptionPane.showMessageDialog(
+                null,
+                "no hay elementos en la matriz");
+        }
+        else{
+           while(idFila != tempFila.primero.y){
+               if(tempFila.siguiente != null){
+                   tempFila = tempFila.siguiente;
+               }
+               else{
+                   JOptionPane.showMessageDialog(
+                null,
+                "No existe la Fila donde se desea insertar el Elemento");
+                   
+               }
+           }
+           
+           tempColumna = tempFila.primero;
+           
+           while(tempColumna.x != idColumna){
+               if(tempColumna.siguiente != null){
+                   tempColumna = tempColumna.siguiente;
+               }
+               else{
+                   JOptionPane.showMessageDialog(
+                null,
+                "No existe la columna donde se desea insertar el elemento");
+                
+               }
+           }
+           
+           tempColumna.nombreImagen = jLabel7.getText();
+           tempColumna.nombreElemento = jLabel8.getText();
+           
+        }
+        
+         jPanel1.removeAll();
+        
+        int x = 0;
+        int y = 600;
+        
+        ListaMatriz apuntadorFila;
+        NodoMatriz apuntadorColumna;
+        
+        apuntadorFila = matriz.primero;
+        for(int i = 1; i<= matriz.contadorFilas; i++){
+            apuntadorColumna = apuntadorFila.primero;
+            
+            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
+               
+                jPanel1.add(apuntadorColumna);
+               
+                String idImg = apuntadorColumna.nombreImagen;
+                apuntadorColumna.setBounds(x, y, 100, 100);
+                apuntadorColumna.setText("("+x+","+y+")");
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(idImg)));
+               apuntadorColumna.setVisible(true);
+               
+                
+                if(apuntadorColumna.siguiente != null){
+                    apuntadorColumna = apuntadorColumna.siguiente;
+                }
+                
+                x+=100;
+            }
+            
+            
+            
+            if(apuntadorFila.siguiente !=  null){
+                apuntadorColumna = null;
+                apuntadorFila = apuntadorFila.siguiente;
+            }
+            x=0;
+            y-=100;
             
         }
-        else if(x==2 && y==1){
-            casilla.setBounds(100, 600, 100, 100);
-            jPanel1.add(casilla);
-        }
-        else if(x==3 && y==1){
-            casilla.setBounds(200, 600, 100, 100);
-            jPanel1.add(casilla);
-        }
-        else if(x==4 && y==1){
-            casilla.setBounds(300, 600, 100, 100);
-            jPanel1.add(casilla);
-        }
         
-        //SEGUNDA FILA
-         if(x==1 && y==2){
-            casilla.setBounds(0, 500, 100, 100);
-            jPanel1.add(casilla);
-        }
-        else if(x==2 && y==2){
-            casilla.setBounds(100, 500, 100, 100);
-            jPanel1.add(casilla);
-        }
-        else if(x==3 && y==2){
-            casilla.setBounds(200, 500, 100, 100);
-            jPanel1.add(casilla);
-        }
-        else if(x==4 && y==2){
-            casilla.setBounds(300, 500, 100, 100);
-            jPanel1.add(casilla);
-        }
-        
-        
-        
-        
-        if(jRadioButton1.isSelected()){
+       if(jRadioButton1.isSelected()){
             if(lista.contadorNodos!=0){
                 lista.eliminarFinal();
                 jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.ultimo.nombreImagen)));
@@ -430,6 +495,11 @@ public class CrearTablero extends javax.swing.JFrame {
             }
             
         }
+        }
+        
+        
+        
+        
         
         
          
@@ -459,9 +529,10 @@ public class CrearTablero extends javax.swing.JFrame {
             for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
                
                 jPanel1.add(apuntadorColumna);
+                //apuntadorColumna.nombreImagen = "piedra.png";
                 apuntadorColumna.setBounds(x, y, 100, 100);
                 apuntadorColumna.setText("("+x+","+y+")");
-                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
                apuntadorColumna.setVisible(true);
                
                 
@@ -505,9 +576,10 @@ public class CrearTablero extends javax.swing.JFrame {
             for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
                
                 jPanel1.add(apuntadorColumna);
+                //apuntadorColumna.nombreImagen = "piedra.png";
                 apuntadorColumna.setBounds(x, y, 100, 100);
                 apuntadorColumna.setText("("+x+","+y+")");
-                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
                apuntadorColumna.setVisible(true);
                
                 
@@ -531,6 +603,13 @@ public class CrearTablero extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        Juego juego = new Juego();
+        juego.matrizJuego = matriz;
+        juego.show();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -572,6 +651,7 @@ public class CrearTablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -579,6 +659,7 @@ public class CrearTablero extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;

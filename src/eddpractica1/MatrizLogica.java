@@ -160,7 +160,7 @@ public class MatrizLogica {
                     
                 }
             
-                NodoMatriz nuevo = new NodoMatriz(tempFila.contadorColumnas+1, i, null, null);
+                NodoMatriz nuevo = new NodoMatriz(tempFila.contadorColumnas+1, i, "piedra.png", null);
             
                 tempColumna.siguiente = nuevo;
                 nuevo.anterior = tempColumna;
@@ -229,7 +229,7 @@ public class MatrizLogica {
             
             for(int z=1; z<=temp.contadorColumnas; z++){
                    System.out.println(z);
-               NodoMatriz nuevo = new NodoMatriz(z, y+1, null, null);// z = coordenada X ; i = coordenada Y
+               NodoMatriz nuevo = new NodoMatriz(z, y+1, "piedra.png", null);// z = coordenada X ; i = coordenada Y
                //nuevo.setBounds(posX, posY, 100, 100);
                //nuevo.setLocation(posX, posY);
                //nuevo.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
