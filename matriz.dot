@@ -1,0 +1,48 @@
+digraph Matriz{
+node [shape=record];
+subgraph Fila_1{
+graph [rankdir = "LR"];
+node [shape=record;];
+x_11[label = "ID_Elemento: 1 \n Nombre: mario\n Tipo:mario2.png"];
+
+x_11->x_12;
+x_12->x_11;
+x_11->x_21;
+x_21->x_11;
+x_12[label = "ID_Elemento: 2 \n Nombre: muro\n Tipo:suelo.png"];
+
+x_12->x_13;
+x_13->x_12;
+x_12->x_22;
+x_22->x_12;
+x_13[label = "ID_Elemento: 3 \n Nombre: goomba\n Tipo:goomba.png"];
+
+x_13->x_14;
+x_14->x_13;
+x_13->x_23;
+x_23->x_13;
+x_14[label = "ID_Elemento: 4 \n Nombre: koopa\n Tipo:koopa.png"];
+
+}
+
+subgraph Fila_2{
+graph [rankdir = "LR"];
+node [shape=record;];
+x_21[label = "ID_Elemento: 1 \n Nombre: hongo\n Tipo:hongo.png"];
+
+x_21->x_22;
+x_22->x_21;
+x_22[label = "ID_Elemento: 2 \n Nombre: ficha\n Tipo:ficha.png"];
+
+x_22->x_23;
+x_23->x_22;
+x_23[label = "ID_Elemento: 3 \n Nombre: pared\n Tipo:pared.png"];
+
+x_23->x_24;
+x_24->x_23;
+x_24[label = "ID_Elemento: 4 \n Nombre: castillo\n Tipo:castillo.png"];
+
+}
+
+}
+

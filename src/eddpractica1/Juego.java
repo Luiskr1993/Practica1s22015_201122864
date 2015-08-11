@@ -13,28 +13,32 @@ import javax.swing.ImageIcon;
  */
 public class Juego extends javax.swing.JFrame {
 
-    MatrizLogica matrizJuego = new MatrizLogica();
+    
     int x = 0;
         int y = 600;
         
         ListaMatriz apuntadorFila;
         NodoMatriz apuntadorColumna;
+        MatrizLogica matriz = new MatrizLogica();
     
     public Juego() {
         
         initComponents();
-       //jPanel1.removeAll();
+        //matrizJuego.crearMatriz();
+        //matrizJuego.cargarMatriz();
+       
+        ListaMatriz apuntadorFila;
+        NodoMatriz apuntadorColumna;
         
-        
-        
-        apuntadorFila = matrizJuego.primero;
-        for(int i = 1; i<= matrizJuego.contadorFilas; i++){
+        apuntadorFila = matriz.primero;
+        //System.out.println("SIIIIIIIII "+apuntadorFila.primero.nombreImagen +" este es el nombre\n");
+        for(int i = 1; i<= matriz.contadorFilas; i++){
             apuntadorColumna = apuntadorFila.primero;
             
             for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
                
                 jPanel1.add(apuntadorColumna);
-                apuntadorColumna.nombreImagen = "piedra.png";
+                //apuntadorColumna.nombreImagen = "piedra.png";
                 apuntadorColumna.setBounds(x, y, 100, 100);
                 apuntadorColumna.setText("("+x+","+y+")");
                 apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
@@ -71,19 +75,17 @@ public class Juego extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBackground(new java.awt.Color(102, 204, 255));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1325, Short.MAX_VALUE)
+            .addGap(0, 1261, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 753, Short.MAX_VALUE)
+            .addGap(0, 723, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -97,8 +99,9 @@ public class Juego extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();

@@ -93,7 +93,12 @@ public class Elementos extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("Volver al Menú");
+        jButton4.setText("graficar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Siguiente ->");
 
@@ -402,6 +407,15 @@ public class Elementos extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        lista.graficar();
+        
+        //GraficaElementos grafica = new GraficaElementos();
+        
+        //grafica.show();
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
