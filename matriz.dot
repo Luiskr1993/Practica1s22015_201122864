@@ -2,7 +2,7 @@ digraph Matriz{
 node[shape=record];
 subgraph Fila_1{
 node[shape=record;];
-x_11[label = "ID_Elemento: 1 \n Nombre: \n Tipo:koopa.png"];
+x_11[label = "ID_Elemento: 1 \n Nombre: null\n Tipo:fondo1.jpg"];
 
 x_11->x_12;
 x_12->x_11;
@@ -22,22 +22,13 @@ rankdir = LR;
 {rank = same; x_12; x_13;}
 x_13[label = "ID_Elemento: 3 \n Nombre: null\n Tipo:fondo1.jpg"];
 
-x_13->x_14;
-x_14->x_13;
+x_13->x_15;
+x_15->x_13;
 rankdir = LR;
 x_13->x_23;
 x_23->x_13;
 rankdir = LR;
-{rank = same; x_13; x_14;}
-x_14[label = "ID_Elemento: 4 \n Nombre: null\n Tipo:fondo1.jpg"];
-
-x_14->x_15;
-x_15->x_14;
-rankdir = LR;
-x_14->x_24;
-x_24->x_14;
-rankdir = LR;
-{rank = same; x_14; x_15;}
+{rank = same; x_13; x_15;}
 x_15[label = "ID_Elemento: 5 \n Nombre: null\n Tipo:fondo1.jpg"];
 
 x_15->x_16;
@@ -80,18 +71,11 @@ rankdir = LR;
 {rank = same; x_22; x_23;}
 x_23[label = "ID_Elemento: 3 \n Nombre: null\n Tipo:fondo1.jpg"];
 
-x_23->x_24;
-x_24->x_23;
+x_23->x_25;
+x_25->x_23;
 rankdir = LR;
 rankdir = LR;
-{rank = same; x_23; x_24;}
-x_24[label = "ID_Elemento: 4 \n Nombre: null\n Tipo:fondo1.jpg"];
-
-x_24->x_25;
-x_25->x_24;
-rankdir = LR;
-rankdir = LR;
-{rank = same; x_24; x_25;}
+{rank = same; x_23; x_25;}
 x_25[label = "ID_Elemento: 5 \n Nombre: null\n Tipo:fondo1.jpg"];
 
 x_25->x_26;
@@ -106,14 +90,14 @@ x_26[label = "ID_Elemento: 6 \n Nombre: null\n Tipo:fondo1.jpg"];
 x_26->x_27;
 x_27->x_26;
 rankdir = LR;
-x_26->x_26;
-x_26->x_26;
+x_26->x_36;
+x_36->x_26;
 rankdir = LR;
 {rank = same; x_26; x_27;}
 x_27[label = "ID_Elemento: 7 \n Nombre: null\n Tipo:fondo1.jpg"];
 
-x_27->x_27;
-x_27->x_27;
+x_27->x_37;
+x_37->x_27;
 }
 
 subgraph Fila_3{
@@ -138,22 +122,13 @@ rankdir = LR;
 {rank = same; x_32; x_33;}
 x_33[label = "ID_Elemento: 3 \n Nombre: null\n Tipo:fondo1.jpg"];
 
-x_33->x_34;
-x_34->x_33;
+x_33->x_35;
+x_35->x_33;
 rankdir = LR;
 x_33->x_23;
 x_23->x_33;
 rankdir = LR;
-{rank = same; x_33; x_34;}
-x_34[label = "ID_Elemento: 4 \n Nombre: null\n Tipo:fondo1.jpg"];
-
-x_34->x_35;
-x_35->x_34;
-rankdir = LR;
-x_34->x_24;
-x_24->x_34;
-rankdir = LR;
-{rank = same; x_34; x_35;}
+{rank = same; x_33; x_35;}
 x_35[label = "ID_Elemento: 5 \n Nombre: null\n Tipo:fondo1.jpg"];
 
 x_35->x_36;
@@ -168,14 +143,114 @@ x_36[label = "ID_Elemento: 6 \n Nombre: null\n Tipo:fondo1.jpg"];
 x_36->x_37;
 x_37->x_36;
 rankdir = LR;
-x_36->x_26;
-x_26->x_36;
 rankdir = LR;
 {rank = same; x_36; x_37;}
 x_37[label = "ID_Elemento: 7 \n Nombre: null\n Tipo:fondo1.jpg"];
 
-x_37->x_27;
-x_27->x_37;
+}
+
+subgraph Fila_4{
+node[shape=record;];
+x_41[label = "ID_Elemento: 1 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_41->x_42;
+x_42->x_41;
+rankdir = LR;
+x_41->x_31;
+x_31->x_41;
+rankdir = LR;
+{rank = same; x_41; x_42;}
+x_42[label = "ID_Elemento: 2 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_42->x_43;
+x_43->x_42;
+rankdir = LR;
+x_42->x_32;
+x_32->x_42;
+rankdir = LR;
+{rank = same; x_42; x_43;}
+x_43[label = "ID_Elemento: 3 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_43->x_45;
+x_45->x_43;
+rankdir = LR;
+x_43->x_33;
+x_33->x_43;
+rankdir = LR;
+{rank = same; x_43; x_45;}
+x_45[label = "ID_Elemento: 5 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_45->x_46;
+x_46->x_45;
+rankdir = LR;
+x_45->x_35;
+x_35->x_45;
+rankdir = LR;
+{rank = same; x_45; x_46;}
+x_46[label = "ID_Elemento: 6 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_46->x_47;
+x_47->x_46;
+rankdir = LR;
+x_46->x_36;
+x_36->x_46;
+rankdir = LR;
+{rank = same; x_46; x_47;}
+x_47[label = "ID_Elemento: 7 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_47->x_57;
+x_57->x_47;
+}
+
+subgraph Fila_5{
+node[shape=record;];
+x_51[label = "ID_Elemento: 1 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_51->x_52;
+x_52->x_51;
+rankdir = LR;
+x_51->x_41;
+x_41->x_51;
+rankdir = LR;
+{rank = same; x_51; x_52;}
+x_52[label = "ID_Elemento: 2 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_52->x_53;
+x_53->x_52;
+rankdir = LR;
+x_52->x_42;
+x_42->x_52;
+rankdir = LR;
+{rank = same; x_52; x_53;}
+x_53[label = "ID_Elemento: 3 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_53->x_55;
+x_55->x_53;
+rankdir = LR;
+x_53->x_43;
+x_43->x_53;
+rankdir = LR;
+{rank = same; x_53; x_55;}
+x_55[label = "ID_Elemento: 5 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_55->x_56;
+x_56->x_55;
+rankdir = LR;
+x_55->x_45;
+x_45->x_55;
+rankdir = LR;
+{rank = same; x_55; x_56;}
+x_56[label = "ID_Elemento: 6 \n Nombre: null\n Tipo:fondo1.jpg"];
+
+x_56->x_57;
+x_57->x_56;
+rankdir = LR;
+x_56->x_46;
+x_46->x_56;
+rankdir = LR;
+{rank = same; x_56; x_57;}
+x_57[label = "ID_Elemento: 7 \n Nombre: null\n Tipo:fondo1.jpg"];
+
 }
 
 }

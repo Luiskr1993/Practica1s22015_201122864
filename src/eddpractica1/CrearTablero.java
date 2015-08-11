@@ -28,85 +28,73 @@ public class CrearTablero extends javax.swing.JFrame {
     String name;
     Lista lista = new Lista();
     MatrizLogica matriz = new MatrizLogica();
-        
-        
+
     public CrearTablero() {
-        
-        
+
         initComponents();
-        
+
         matriz.crearMatriz();
-        
+
         ListaMatriz apuntadorFila;
         NodoMatriz apuntadorColumna;
-        
+
         apuntadorFila = matriz.primero;
-        for(int i = 1; i<= matriz.contadorFilas; i++){
+        for (int i = 1; i <= matriz.contadorFilas; i++) {
             apuntadorColumna = apuntadorFila.primero;
-            
-            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
-               
+
+            for (int z = 1; z <= apuntadorFila.contadorColumnas; z++) {
+
                 jPanel1.add(apuntadorColumna);
                 apuntadorColumna.nombreImagen = "fondo1.jpg";
                 apuntadorColumna.setBounds(x, y, 100, 100);
-                apuntadorColumna.setText("("+x+","+y+")");
+                apuntadorColumna.setText("(" + x + "," + y + ")");
                 apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
-               apuntadorColumna.setVisible(true);
-               
-                
-                if(apuntadorColumna.siguiente != null){
+                apuntadorColumna.setVisible(true);
+
+                if (apuntadorColumna.siguiente != null) {
                     apuntadorColumna = apuntadorColumna.siguiente;
                 }
-                
-                x+=100;
+
+                x += 100;
             }
-            
-            
-            
-            if(apuntadorFila.siguiente !=  null){
+
+            if (apuntadorFila.siguiente != null) {
                 apuntadorColumna = null;
                 apuntadorFila = apuntadorFila.siguiente;
             }
-            x=0;
-            y-=100;
-            
+            x = 0;
+            y -= 100;
+
         }
-        
-        
-       
+
         //jPanel1.add(matriz.primero.siguiente.primero);
         //jPanel1.add(matriz.ultimo.ultimo);
-        
         /*
-        for(int i  = 1; i<=2; i++){
-            for(int a = 1; a<=4; a++){
-                JButton casilla = new JButton();
-                //jScrollPane1.add(casilla);
-               // MouseListener listener = new DragMouseAdapter();
-                casilla.setBounds(x ,y, 100, 100);
+         for(int i  = 1; i<=2; i++){
+         for(int a = 1; a<=4; a++){
+         JButton casilla = new JButton();
+         //jScrollPane1.add(casilla);
+         // MouseListener listener = new DragMouseAdapter();
+         casilla.setBounds(x ,y, 100, 100);
                 
-               jPanel1.add(casilla);
-                casilla.setText("Casilla"+a);
-                casilla.setBackground(Color.white);
-                casilla.setName("casilla"+x);
-                //casilla.addMouseListener(this);
-                casilla.setVisible(true);
+         jPanel1.add(casilla);
+         casilla.setText("Casilla"+a);
+         casilla.setBackground(Color.white);
+         casilla.setName("casilla"+x);
+         //casilla.addMouseListener(this);
+         casilla.setVisible(true);
                 
-                x+=100;
+         x+=100;
                 
-                System.out.println("Se ha creado la casilla: "+a +" Fila:"+i);
-                name = casilla.getName();
-                System.out.println("Boton:"+name);
+         System.out.println("Se ha creado la casilla: "+a +" Fila:"+i);
+         name = casilla.getName();
+         System.out.println("Boton:"+name);
                
-            }
-            x=0;
-            y-=100;
-        }
-        */
-        
-        
-        
-       
+         }
+         x=0;
+         y-=100;
+         }
+         */
     }
 
     /**
@@ -137,6 +125,8 @@ public class CrearTablero extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jTextField3 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setLocation(new java.awt.Point(0, 0));
@@ -237,6 +227,13 @@ public class CrearTablero extends javax.swing.JFrame {
             }
         });
 
+        jButton7.setText("Eliminar Fila");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -246,13 +243,8 @@ public class CrearTablero extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -290,7 +282,18 @@ public class CrearTablero extends javax.swing.JFrame {
                                         .addGap(63, 63, 63)))
                                 .addGap(15, 15, 15))
                             .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,13 +326,17 @@ public class CrearTablero extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton7)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -340,9 +347,9 @@ public class CrearTablero extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        
+
         jRadioButton2.setEnabled(false);
-        
+
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -352,17 +359,16 @@ public class CrearTablero extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        if(jRadioButton1.isSelected()){
+        if (jRadioButton1.isSelected()) {
             jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.ultimo.nombreImagen)));
             jLabel7.setText(lista.ultimo.nombreImagen);
             jLabel8.setText(lista.ultimo.nombreElemento);
-        }
-        else if(jRadioButton2.isSelected()){
+        } else if (jRadioButton2.isSelected()) {
             jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.primero.nombreImagen)));
             jLabel7.setText(lista.primero.nombreImagen);
             jLabel8.setText(lista.primero.nombreElemento);
         }
-        
+
         jLabel1.setEnabled(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -370,153 +376,134 @@ public class CrearTablero extends javax.swing.JFrame {
         // TODO add your handling code here:
         int idColumna = Integer.parseInt(jTextField1.getText());
         int idFila = Integer.parseInt(jTextField2.getText());
-        
-        
-        
+
         NodoMatriz tempColumna;
         ListaMatriz tempFila;
-        
+
         tempFila = matriz.primero;
-        
-        if(idFila > matriz.contadorFilas || idColumna > tempFila.contadorColumnas){
+
+        if (idFila > matriz.contadorFilas || idColumna > tempFila.contadorColumnas) {
             JOptionPane.showMessageDialog(
-                null,
-                "Coordenada incorrecta, no existe coordenada");
-            
-        
-        }
-        else{
-            if(tempFila == null){
-            JOptionPane.showMessageDialog(
-                null,
-                "no hay elementos en la matriz");
-        }
-        else{
-           while(idFila != tempFila.primero.y){
-               if(tempFila.siguiente != null){
-                   tempFila = tempFila.siguiente;
-               }
-               else{
-                   JOptionPane.showMessageDialog(
-                null,
-                "No existe la Fila donde se desea insertar el Elemento");
-                   
-               }
-           }
-           
-           tempColumna = tempFila.primero;
-           
-           while(tempColumna.x != idColumna){
-               if(tempColumna.siguiente != null){
-                   tempColumna = tempColumna.siguiente;
-               }
-               else{
-                   JOptionPane.showMessageDialog(
-                null,
-                "No existe la columna donde se desea insertar el elemento");
-                
-               }
-           }
-           
-           tempColumna.nombreImagen = jLabel7.getText();
-           tempColumna.nombreElemento = jLabel8.getText();
-           
-        }
-        
-         jPanel1.removeAll();
-        
-        int x = 0;
-        int y = 600;
-        
-        ListaMatriz apuntadorFila;
-        NodoMatriz apuntadorColumna;
-        
-        apuntadorFila = matriz.primero;
-        for(int i = 1; i<= matriz.contadorFilas; i++){
-            apuntadorColumna = apuntadorFila.primero;
-            
-            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
-               
-                jPanel1.add(apuntadorColumna);
-               
-                String idImg = apuntadorColumna.nombreImagen;
-                apuntadorColumna.setBounds(x, y, 100, 100);
-                apuntadorColumna.setText("("+x+","+y+")");
-                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(idImg)));
-               apuntadorColumna.setVisible(true);
-               
-                
-                if(apuntadorColumna.siguiente != null){
-                    apuntadorColumna = apuntadorColumna.siguiente;
-                }
-                
-                x+=100;
-            }
-            
-            
-            
-            if(apuntadorFila.siguiente !=  null){
-                apuntadorColumna = null;
-                apuntadorFila = apuntadorFila.siguiente;
-            }
-            x=0;
-            y-=100;
-            
-        }
-        
-       if(jRadioButton1.isSelected()){
-            if(lista.contadorNodos!=0){
-                lista.eliminarFinal();
-                jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.ultimo.nombreImagen)));
-                
-                jLabel7.setText(lista.ultimo.nombreImagen);
-                jLabel8.setText(lista.ultimo.nombreElemento);
-            }
-            else
-            {
+                    null,
+                    "Coordenada incorrecta, no existe coordenada");
+
+        } else {
+            if (tempFila == null) {
                 JOptionPane.showMessageDialog(
-                null,
-                "Ya no hay elementos para agregar");
-            }
-          
-        }
-        else if(jRadioButton2.isSelected()){
-            if(lista.contadorNodos!=0){
-                lista.eliminarInicio();
-                if(lista.primero != null){
-                    jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.primero.nombreImagen)));
-                    
-                    jLabel7.setText(lista.primero.nombreImagen);
-                    jLabel8.setText(lista.primero.nombreElemento);
+                        null,
+                        "no hay elementos en la matriz");
+            } else {
+                while (idFila != tempFila.primero.y) {
+                    if (tempFila.siguiente != null) {
+                        tempFila = tempFila.siguiente;
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "No existe la Fila donde se desea insertar el Elemento");
+
+                    }
                 }
-                
-                else{
+
+                tempColumna = tempFila.primero;
+
+                while (tempColumna.x != idColumna) {
+                    if (tempColumna.siguiente != null) {
+                        tempColumna = tempColumna.siguiente;
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "No existe la columna donde se desea insertar el elemento");
+
+                    }
+                }
+
+                tempColumna.nombreImagen = jLabel7.getText();
+                tempColumna.nombreElemento = jLabel8.getText();
+
+            }
+
+            jPanel1.removeAll();
+
+            int x = 0;
+            int y = 600;
+
+            ListaMatriz apuntadorFila;
+            NodoMatriz apuntadorColumna;
+
+            apuntadorFila = matriz.primero;
+            for (int i = 1; i <= matriz.contadorFilas; i++) {
+                apuntadorColumna = apuntadorFila.primero;
+
+                for (int z = 1; z <= apuntadorFila.contadorColumnas; z++) {
+
+                    jPanel1.add(apuntadorColumna);
+
+                    String idImg = apuntadorColumna.nombreImagen;
+                    apuntadorColumna.setBounds(x, y, 100, 100);
+                    apuntadorColumna.setText("(" + x + "," + y + ")");
+                    apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(idImg)));
+                    apuntadorColumna.setVisible(true);
+
+                    if (apuntadorColumna.siguiente != null) {
+                        apuntadorColumna = apuntadorColumna.siguiente;
+                    }
+
+                    x += 100;
+                }
+
+                if (apuntadorFila.siguiente != null) {
+                    apuntadorColumna = null;
+                    apuntadorFila = apuntadorFila.siguiente;
+                }
+                x = 0;
+                y -= 100;
+
+            }
+
+            if (jRadioButton1.isSelected()) {
+                if (lista.contadorNodos != 0) {
+                    lista.eliminarFinal();
+                    if (lista.ultimo != null) {
+                        jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.ultimo.nombreImagen)));
+
+                        jLabel7.setText(lista.ultimo.nombreImagen);
+                        jLabel8.setText(lista.ultimo.nombreElemento);
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Ya no hay elementos para agregar");
+                    }
+                } else {
                     JOptionPane.showMessageDialog(
-                null,
-                "Ya no hay elementos para agregar");
+                            null,
+                            "Ya no hay elementos para agregar");
                 }
-                
-                    
+
+            } else if (jRadioButton2.isSelected()) {
+                if (lista.contadorNodos != 0) {
+                    lista.eliminarInicio();
+                    if (lista.primero != null) {
+                        jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.primero.nombreImagen)));
+
+                        jLabel7.setText(lista.primero.nombreImagen);
+                        jLabel8.setText(lista.primero.nombreElemento);
+                    } else {
+                        JOptionPane.showMessageDialog(
+                                null,
+                                "Ya no hay elementos para agregar");
+                    }
+
+                } else {
+                    JOptionPane.showMessageDialog(
+                            null,
+                            "Ya no hay elementos para agregar");
+
+                }
+
             }
-            else
-            {
-                JOptionPane.showMessageDialog(
-                null,
-                "Ya no hay elementos para agregar");
- 
-                
-            }
-            
         }
-        }
-        
-        
-        
-        
-        
-        
-         
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -526,95 +513,89 @@ public class CrearTablero extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         matriz.agregarColumna();
-        
+
         jPanel1.removeAll();
-        
+
         int x = 0;
         int y = 600;
-        
+
         ListaMatriz apuntadorFila;
         NodoMatriz apuntadorColumna;
-        
+
         apuntadorFila = matriz.primero;
-        for(int i = 1; i<= matriz.contadorFilas; i++){
+        for (int i = 1; i <= matriz.contadorFilas; i++) {
             apuntadorColumna = apuntadorFila.primero;
-            
-            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
-               
+
+            for (int z = 1; z <= apuntadorFila.contadorColumnas; z++) {
+
                 jPanel1.add(apuntadorColumna);
                 //apuntadorColumna.nombreImagen = "piedra.png";
                 apuntadorColumna.setBounds(x, y, 100, 100);
-                apuntadorColumna.setText("("+x+","+y+")");
+                apuntadorColumna.setText("(" + x + "," + y + ")");
                 apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
-               apuntadorColumna.setVisible(true);
-               
-                
-                if(apuntadorColumna.siguiente != null){
+                apuntadorColumna.setVisible(true);
+
+                if (apuntadorColumna.siguiente != null) {
                     apuntadorColumna = apuntadorColumna.siguiente;
                 }
-                
-                x+=100;
+
+                x += 100;
             }
-            
-            
-            
-            if(apuntadorFila.siguiente !=  null){
+
+            if (apuntadorFila.siguiente != null) {
                 apuntadorColumna = null;
                 apuntadorFila = apuntadorFila.siguiente;
             }
-            x=0;
-            y-=100;
-            
+            x = 0;
+            y -= 100;
+
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         matriz.agregarFila();
-        
-         jPanel1.removeAll();
-        
+
+        jPanel1.removeAll();
+
         int x = 0;
         int y = 600;
-        
+
         ListaMatriz apuntadorFila;
         NodoMatriz apuntadorColumna;
-        
+
         apuntadorFila = matriz.primero;
-        for(int i = 1; i<= matriz.contadorFilas; i++){
+
+        for (int i = 1; i <= matriz.contadorFilas; i++) {
             apuntadorColumna = apuntadorFila.primero;
-            
-            for(int z=1; z<=apuntadorFila.contadorColumnas; z++){
-               
+
+            for (int z = 1; z <= apuntadorFila.contadorColumnas; z++) {
+
                 jPanel1.add(apuntadorColumna);
                 //apuntadorColumna.nombreImagen = "piedra.png";
                 apuntadorColumna.setBounds(x, y, 100, 100);
-                apuntadorColumna.setText("("+x+","+y+")");
+                apuntadorColumna.setText("(" + x + "," + y + ")");
                 apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
-               apuntadorColumna.setVisible(true);
-               
-                
-                if(apuntadorColumna.siguiente != null){
+                apuntadorColumna.setVisible(true);
+
+                if (apuntadorColumna.siguiente != null) {
                     apuntadorColumna = apuntadorColumna.siguiente;
                 }
-                
-                x+=100;
+
+                x += 100;
             }
-            
-            
-            
-            if(apuntadorFila.siguiente !=  null){
+
+            if (apuntadorFila.siguiente != null) {
                 apuntadorColumna = null;
                 apuntadorFila = apuntadorFila.siguiente;
             }
-            x=0;
-            y-=100;
-            
+            x = 0;
+            y -= 100;
+
         }
-        
-        
+
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -622,12 +603,63 @@ public class CrearTablero extends javax.swing.JFrame {
         Juego juego = new Juego();
         juego.matriz = matriz;
         juego.show();
-        
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         matriz.graficarMatriz();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        int idCol = Integer.parseInt(jTextField3.getText());
+
+        matriz.eliminarColumna(idCol);
+
+        int x = 0;
+        int y = 600;
+
+        ListaMatriz apuntadorFila;
+        NodoMatriz apuntadorColumna;
+
+        apuntadorFila = matriz.primero;
+
+        JOptionPane.showMessageDialog(
+                null,
+                "numero actual de columnas: " + apuntadorFila.contadorColumnas);
+
+        jPanel1.removeAll();
+        jPanel1.repaint();
+
+        for (int i = 1; i <= matriz.contadorFilas; i++) {
+            apuntadorColumna = apuntadorFila.primero;
+
+            for (int z = 1; z <= apuntadorFila.contadorColumnas; z++) {
+
+                jPanel1.add(apuntadorColumna);
+                //apuntadorColumna.nombreImagen = "piedra.png";
+                apuntadorColumna.setBounds(x, y, 100, 100);
+                apuntadorColumna.setText("(" + x + "," + y + ")");
+                apuntadorColumna.setIcon(new ImageIcon(getClass().getResource(apuntadorColumna.nombreImagen)));
+                apuntadorColumna.setVisible(true);
+
+                if (apuntadorColumna.siguiente != null) {
+                    apuntadorColumna = apuntadorColumna.siguiente;
+                }
+
+                x += 100;
+            }
+
+            if (apuntadorFila.siguiente != null) {
+                apuntadorColumna = null;
+                apuntadorFila = apuntadorFila.siguiente;
+            }
+            x = 0;
+            y -= 100;
+
+        }
+
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -671,6 +703,7 @@ public class CrearTablero extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -684,7 +717,7 @@ public class CrearTablero extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
-   
 }

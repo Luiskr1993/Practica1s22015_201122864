@@ -80,16 +80,17 @@ public class Lista {
     public void eliminarFinal(){
         Nodo temporal;
         
+        temporal = ultimo;
         
-        if(ultimo == null){
+        if(temporal == null){
             System.out.println("la lista esta vacia\n");
         }
         else{
             
-            temporal = ultimo.anterior;
+            ultimo = temporal.anterior;
             //temporal.siguiente = null;
-            ultimo = temporal;
             temporal = null;
+            //temporal = null;
         }
         
         contadorNodos--;

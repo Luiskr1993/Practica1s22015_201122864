@@ -1,5 +1,6 @@
 package eddpractica1;
 
+import static com.sun.org.apache.xml.internal.utils.StringBufferPool.free;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import javax.swing.ImageIcon;
@@ -259,7 +260,6 @@ public class MatrizLogica {
                 tempColumna.siguiente = nuevo;
                 nuevo.anterior = tempColumna;
                 tempFila.ultimo = nuevo;
-         
 
                 tempFila.contadorColumnas++;
 
@@ -268,40 +268,36 @@ public class MatrizLogica {
                 } else {
                     System.out.println("es la ultima fila");
                 }
-                
-                
 
             }
             tF = primero;
             tF2 = tF.siguiente;
-            
+
             actual1 = tF.ultimo;
             actual2 = tF.siguiente.ultimo;
 
             for (int p = 1; p <= contadorFilas; p++) {
 
-               // actual1 = tF.ultimo;
+                // actual1 = tF.ultimo;
                 actual1.abajo = actual2;
                 actual2.arriba = actual1;
                 if (tF.siguiente != null) {
                     //actual2 = tF.siguiente.ultimo;
                     //actual2 = tF2.ultimo;
-                   //actual1.abajo = actual2;
-                   //actual2.arriba = actual1;
+                    //actual1.abajo = actual2;
+                    //actual2.arriba = actual1;
                     tF = tF.siguiente;
-                   actual1 = tF.ultimo;
-                   if(tF.siguiente != null){
+                    actual1 = tF.ultimo;
+                    if (tF.siguiente != null) {
                         actual2 = tF.siguiente.ultimo;
-                   }
-                       
-                            
+                    }
+
 //tF2 = tF2.siguiente;
                 }
-               
-                if(tF.siguiente != null){
+
+                if (tF.siguiente != null) {
                     tF = tF.siguiente;
                 }
-                
 
             }
 
@@ -355,7 +351,7 @@ public class MatrizLogica {
             actual1 = ultimo.primero;
             actual2 = ultimo.anterior.primero;
 
-            for (int j = 1; j <=primero.contadorColumnas; j++) {
+            for (int j = 1; j <= primero.contadorColumnas; j++) {
                 actual1.abajo = actual2;
                 actual2.arriba = actual1;
 
@@ -365,11 +361,59 @@ public class MatrizLogica {
                 }
 
             }
-            
 
         }
 
         contadorFilas++;
+    }
+
+    public void eliminarColumna(int idColumna) {
+        ListaMatriz tempFila;
+        NodoMatriz tempColumna, temp;
+
+        tempFila = primero;
+
+        for (int i = 1; i <= contadorFilas; i++) {
+            tempColumna = tempFila.primero;
+
+            if (tempColumna.x == idColumna) {
+                tempFila.primero = tempColumna.siguiente;
+                tempColumna = null;
+            } else {
+                while (tempColumna.x != idColumna) {
+
+                    if (tempColumna.siguiente != null) {
+                        tempColumna = tempColumna.siguiente;
+                    } else {
+                        tempColumna = tempFila.ultimo;
+                    }
+                    
+                    
+                }
+                
+                if(tempColumna == tempFila.ultimo){
+                        tempFila.ultimo = tempColumna.anterior;
+                        tempFila.ultimo.siguiente = null;
+                        tempColumna = null;
+                        
+                    }
+                    else{
+                        temp = tempColumna.anterior;
+                        temp.siguiente = tempColumna.siguiente;
+                        tempColumna.siguiente.anterior = temp;
+                        
+                    }
+            }
+            
+            tempFila.contadorColumnas--;
+            
+            if(tempFila.siguiente != null){
+                tempFila = tempFila.siguiente;
+            }
+            
+            
+        }
+        //tempFila.contadorColumnas--;
     }
 
     public void graficarMatriz() {
@@ -397,7 +441,7 @@ public class MatrizLogica {
                 //tempColumna1 = tempFila.primero;
                 for (int i = 1; i <= contadorFilas; i++) {
 
-                //pw.println("rank = same; node;");
+                    //pw.println("rank = same; node;");
                     tempColumna1 = tempFila.primero;
                     pw.println("subgraph Fila_" + i + "{");
 
@@ -415,10 +459,10 @@ public class MatrizLogica {
 
                         pw.println(codigo);
 
-                        if(tempColumna1.siguiente != null) {
-                            
+                        if (tempColumna1.siguiente != null) {
+
                             int id2 = y + tempColumna1.siguiente.x;
-                            
+
                             String sentencia = "x_" + id + "->x_" + id2 + ";";
                             pw.println(sentencia);
                             String sentencia2 = "x_" + id2 + "->x_" + id + ";";
@@ -435,12 +479,12 @@ public class MatrizLogica {
 
                                 //pw.println("rankdir = TB;");
                             }
-                            
-                                tempColumna1 = tempColumna1.siguiente;
-                            
+
+                            tempColumna1 = tempColumna1.siguiente;
+
                             pw.println("rankdir = LR;");
                             pw.println("{rank = same; x_" + id + "; x_" + id2 + ";}");
-                        }else{
+                        } else {
                             if (tempColumna1.abajo != null) {
                                 int idY1 = (10 * tempColumna1.abajo.y) + tempColumna1.x;
                                 String sentencia3 = "x_" + id + "->x_" + idY1 + ";";
@@ -452,7 +496,6 @@ public class MatrizLogica {
                                 //pw.println("rankdir = TB;");
                             }
                         }
-                        
 
                     }
 
