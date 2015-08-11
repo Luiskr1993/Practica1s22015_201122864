@@ -481,6 +481,7 @@ public class CrearTablero extends javax.swing.JFrame {
 
             } else if (jRadioButton2.isSelected()) {
                 if (lista.contadorNodos != 0) {
+                    
                     lista.eliminarInicio();
                     if (lista.primero != null) {
                         jLabel1.setIcon(new ImageIcon(getClass().getResource(lista.primero.nombreImagen)));
