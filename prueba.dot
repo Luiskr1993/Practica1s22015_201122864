@@ -12,11 +12,107 @@ e_3[label = "ID_Elemento: 3 \n Nombre: mario\n Tipo:3"];
 
 e_3->e_4;
 e_4->e_3;
-e_4[label = "ID_Elemento: 4 \n Nombre: muro\n Tipo:4"];
+e_4[label = "ID_Elemento: 4 \n Nombre: m1\n Tipo:4"];
 
 e_4->e_5;
 e_5->e_4;
-e_5[label = "ID_Elemento: 5 \n Nombre: ficha\n Tipo:5"];
+e_5[label = "ID_Elemento: 5 \n Nombre: m2\n Tipo:5"];
+
+e_5->e_6;
+e_6->e_5;
+e_6[label = "ID_Elemento: 6 \n Nombre: m3\n Tipo:6"];
+
+e_6->e_7;
+e_7->e_6;
+e_7[label = "ID_Elemento: 7 \n Nombre: m4\n Tipo:7"];
+
+e_7->e_8;
+e_8->e_7;
+e_8[label = "ID_Elemento: 8 \n Nombre: m5\n Tipo:8"];
+
+e_8->e_9;
+e_9->e_8;
+e_9[label = "ID_Elemento: 9 \n Nombre: m6\n Tipo:9"];
+
+e_9->e_10;
+e_10->e_9;
+e_10[label = "ID_Elemento: 10 \n Nombre: m7\n Tipo:10"];
+
+e_10->e_11;
+e_11->e_10;
+e_11[label = "ID_Elemento: 11 \n Nombre: m8\n Tipo:11"];
+
+e_11->e_12;
+e_12->e_11;
+e_12[label = "ID_Elemento: 12 \n Nombre: m9\n Tipo:12"];
+
+e_12->e_13;
+e_13->e_12;
+e_13[label = "ID_Elemento: 13 \n Nombre: m10\n Tipo:13"];
+
+e_13->e_14;
+e_14->e_13;
+e_14[label = "ID_Elemento: 14 \n Nombre: p1\n Tipo:14"];
+
+e_14->e_15;
+e_15->e_14;
+e_15[label = "ID_Elemento: 15 \n Nombre: p2\n Tipo:15"];
+
+e_15->e_16;
+e_16->e_15;
+e_16[label = "ID_Elemento: 16 \n Nombre: p3\n Tipo:16"];
+
+e_16->e_17;
+e_17->e_16;
+e_17[label = "ID_Elemento: 17 \n Nombre: p4\n Tipo:17"];
+
+e_17->e_18;
+e_18->e_17;
+e_18[label = "ID_Elemento: 18 \n Nombre: p5\n Tipo:18"];
+
+e_18->e_19;
+e_19->e_18;
+e_19[label = "ID_Elemento: 19 \n Nombre: p6\n Tipo:19"];
+
+e_19->e_20;
+e_20->e_19;
+e_20[label = "ID_Elemento: 20 \n Nombre: p7\n Tipo:20"];
+
+e_20->e_21;
+e_21->e_20;
+e_21[label = "ID_Elemento: 21 \n Nombre: f1\n Tipo:21"];
+
+e_21->e_22;
+e_22->e_21;
+e_22[label = "ID_Elemento: 22 \n Nombre: f2\n Tipo:22"];
+
+e_22->e_23;
+e_23->e_22;
+e_23[label = "ID_Elemento: 23 \n Nombre: f3\n Tipo:23"];
+
+e_23->e_24;
+e_24->e_23;
+e_24[label = "ID_Elemento: 24 \n Nombre: f4\n Tipo:24"];
+
+e_24->e_25;
+e_25->e_24;
+e_25[label = "ID_Elemento: 25 \n Nombre: f5\n Tipo:25"];
+
+e_25->e_26;
+e_26->e_25;
+e_26[label = "ID_Elemento: 26 \n Nombre: f6\n Tipo:26"];
+
+e_26->e_27;
+e_27->e_26;
+e_27[label = "ID_Elemento: 27 \n Nombre: f7\n Tipo:27"];
+
+e_27->e_28;
+e_28->e_27;
+e_28[label = "ID_Elemento: 28 \n Nombre: f1\n Tipo:28"];
+
+e_28->e_29;
+e_29->e_28;
+e_29[label = "ID_Elemento: 29 \n Nombre: c1\n Tipo:29"];
 
 }
 

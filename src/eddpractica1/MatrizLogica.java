@@ -46,7 +46,7 @@ public class MatrizLogica {
 
                 for (int z = 1; z <= 4; z++) {
                     System.out.println(z);
-                    NodoMatriz nuevo = new NodoMatriz(z, i, null, null);// z = coordenada X ; i = coordenada Y
+                    NodoMatriz nuevo = new NodoMatriz(z, i, null, null, 0);// z = coordenada X ; i = coordenada Y
                     //nuevo.setBounds(posX, posY, 100, 100);
                     //nuevo.setLocation(posX, posY);
                     //nuevo.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
@@ -75,7 +75,7 @@ public class MatrizLogica {
                 ultimo = fila;
 
                 for (int z = 1; z <= 4; z++) {
-                    NodoMatriz nuevo = new NodoMatriz(z, i, null, null);   // z = coordenada X ; i = coordenada Y
+                    NodoMatriz nuevo = new NodoMatriz(z, i, null, null, 0);   // z = coordenada X ; i = coordenada Y
                     //nuevo.setBounds(posX, posY, 100, 100);
                     //nuevo.setLocation(posX, posY);
                     //nuevo.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
@@ -149,7 +149,7 @@ public class MatrizLogica {
 
                 for (int z = 1; z <= actualFila.contadorColumnas; z++) {
                     System.out.println(z);
-                    NodoMatriz nuevo = new NodoMatriz(z, i, actualColumna.nombreImagen, actualColumna.nombreElemento);// z = coordenada X ; i = coordenada Y
+                    NodoMatriz nuevo = new NodoMatriz(z, i, actualColumna.nombreImagen, actualColumna.nombreElemento, actualColumna.tipo);// z = coordenada X ; i = coordenada Y
                     //nuevo.setBounds(posX, posY, 100, 100);
                     //nuevo.setLocation(posX, posY);
                     //nuevo.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
@@ -178,7 +178,7 @@ public class MatrizLogica {
                 ultimo = fila;
 
                 for (int z = 1; z <= 4; z++) {
-                    NodoMatriz nuevo = new NodoMatriz(z, i, actualColumna.nombreImagen, actualColumna.nombreElemento);   // z = coordenada X ; i = coordenada Y
+                    NodoMatriz nuevo = new NodoMatriz(z, i, actualColumna.nombreImagen, actualColumna.nombreElemento, actualColumna.tipo);   // z = coordenada X ; i = coordenada Y
                     //nuevo.setBounds(posX, posY, 100, 100);
                     //nuevo.setLocation(posX, posY);
                     //nuevo.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
@@ -254,11 +254,12 @@ public class MatrizLogica {
 
                 }
 
-                NodoMatriz nuevo = new NodoMatriz(tempFila.contadorColumnas + 1, i, "fondo1.jpg", null);
+                NodoMatriz nuevo = new NodoMatriz(tempFila.contadorColumnas + 1, i, "fondo1.jpg", null, tempColumna.tipo);
 
                 tempColumna.siguiente = nuevo;
                 nuevo.anterior = tempColumna;
                 tempFila.ultimo = nuevo;
+         
 
                 tempFila.contadorColumnas++;
 
@@ -267,21 +268,40 @@ public class MatrizLogica {
                 } else {
                     System.out.println("es la ultima fila");
                 }
+                
+                
 
             }
             tF = primero;
             tF2 = tF.siguiente;
+            
+            actual1 = tF.ultimo;
+            actual2 = tF.siguiente.ultimo;
 
             for (int p = 1; p <= contadorFilas; p++) {
 
-                actual1 = tF.ultimo;
+               // actual1 = tF.ultimo;
+                actual1.abajo = actual2;
+                actual2.arriba = actual1;
                 if (tF.siguiente != null) {
-                    actual2 = tF.siguiente.ultimo;
-                    tF2 = tF2.siguiente;
-
+                    //actual2 = tF.siguiente.ultimo;
+                    //actual2 = tF2.ultimo;
+                   //actual1.abajo = actual2;
+                   //actual2.arriba = actual1;
+                    tF = tF.siguiente;
+                   actual1 = tF.ultimo;
+                   if(tF.siguiente != null){
+                        actual2 = tF.siguiente.ultimo;
+                   }
+                       
+                            
+//tF2 = tF2.siguiente;
                 }
-
-                tF = tF.siguiente;
+               
+                if(tF.siguiente != null){
+                    tF = tF.siguiente;
+                }
+                
 
             }
 
@@ -311,7 +331,7 @@ public class MatrizLogica {
 
             for (int z = 1; z <= temp.contadorColumnas; z++) {
                 System.out.println(z);
-                NodoMatriz nuevo = new NodoMatriz(z, y + 1, "fondo1.jpg", null);// z = coordenada X ; i = coordenada Y
+                NodoMatriz nuevo = new NodoMatriz(z, y + 1, "fondo1.jpg", null, 0);// z = coordenada X ; i = coordenada Y
                 //nuevo.setBounds(posX, posY, 100, 100);
                 //nuevo.setLocation(posX, posY);
                 //nuevo.setIcon(new ImageIcon(getClass().getResource("piedra.png")));
@@ -335,7 +355,7 @@ public class MatrizLogica {
             actual1 = ultimo.primero;
             actual2 = ultimo.anterior.primero;
 
-            for (int j = 1; j <= contadorFilas; j++) {
+            for (int j = 1; j <=primero.contadorColumnas; j++) {
                 actual1.abajo = actual2;
                 actual2.arriba = actual1;
 
@@ -345,6 +365,7 @@ public class MatrizLogica {
                 }
 
             }
+            
 
         }
 
@@ -371,46 +392,67 @@ public class MatrizLogica {
                 pw = new PrintWriter(fichero);
 
                 pw.println("digraph Matriz{");
-                pw.println("node [shape=record];");
+                pw.println("node[shape=record];");
 
                 //tempColumna1 = tempFila.primero;
-                
                 for (int i = 1; i <= contadorFilas; i++) {
+
+                //pw.println("rank = same; node;");
                     tempColumna1 = tempFila.primero;
                     pw.println("subgraph Fila_" + i + "{");
-                    pw.println("graph [rankdir = \"LR\"];");
-                    pw.println("node [shape=record;];");
-                    
-                    //pw.println("rankdir=\"LR\";");
 
+                    pw.println("node[shape=record;];");
+
+                    //pw.println("rankdir=\"LR\";");
                     for (int j = 1; j <= tempFila.contadorColumnas; j++) {
-                        int y = i*10;
+
+                        int y = i * 10;
                         int id = y + tempColumna1.x;
-                        
+                        //int id21 = y + tempColumna1.siguiente.x;
+
                         String codigo = "x_" + id + "[label = \"ID_Elemento: " + tempColumna1.x + " \\n Nombre: " + tempColumna1.nombreElemento + "\\n Tipo:" + tempColumna1.nombreImagen + "\"];\n";
                         //String codigo1 = "y_" + tempColumna1.x + "[label = \"ID_Elemento: " + tempColumna1.x + " \\n Nombre: " + tempColumna1.nombreElemento + "\\n Tipo:" + tempColumna1.x + "\"];\n";
 
                         pw.println(codigo);
 
-                        if (tempColumna1.siguiente != null) {
+                        if(tempColumna1.siguiente != null) {
+                            
                             int id2 = y + tempColumna1.siguiente.x;
+                            
                             String sentencia = "x_" + id + "->x_" + id2 + ";";
                             pw.println(sentencia);
                             String sentencia2 = "x_" + id2 + "->x_" + id + ";";
                             pw.println(sentencia2);
-                            
-                            if(tempColumna1.abajo != null){
-                                int idY1 = (10*tempColumna1.abajo.y) + tempColumna1.x;
-                                String sentencia3 = "x_"+ id + "->x_"+idY1+";";
-                                pw.println(sentencia3);
-                                
-                                String sentencia4 =  "x_" + idY1 + "->x_" + id + ";";
-                                pw.println(sentencia4);
-                                
-                            }
+                            pw.println("rankdir = LR;");
 
-                            tempColumna1 = tempColumna1.siguiente;
+                            if (tempColumna1.abajo != null) {
+                                int idY1 = (10 * tempColumna1.abajo.y) + tempColumna1.x;
+                                String sentencia3 = "x_" + id + "->x_" + idY1 + ";";
+                                pw.println(sentencia3);
+
+                                String sentencia4 = "x_" + idY1 + "->x_" + id + ";";
+                                pw.println(sentencia4);
+
+                                //pw.println("rankdir = TB;");
+                            }
+                            
+                                tempColumna1 = tempColumna1.siguiente;
+                            
+                            pw.println("rankdir = LR;");
+                            pw.println("{rank = same; x_" + id + "; x_" + id2 + ";}");
+                        }else{
+                            if (tempColumna1.abajo != null) {
+                                int idY1 = (10 * tempColumna1.abajo.y) + tempColumna1.x;
+                                String sentencia3 = "x_" + id + "->x_" + idY1 + ";";
+                                pw.println(sentencia3);
+
+                                String sentencia4 = "x_" + idY1 + "->x_" + id + ";";
+                                pw.println(sentencia4);
+
+                                //pw.println("rankdir = TB;");
+                            }
                         }
+                        
 
                     }
 

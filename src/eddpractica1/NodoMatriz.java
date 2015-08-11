@@ -17,10 +17,11 @@ public class NodoMatriz extends JLabel{
     
     int x;
     int y;
+    int tipo;
     String nombreImagen;
     String nombreElemento;
     
-    public NodoMatriz(int x, int y, String nombreImagen, String nombreElemento){
+    public NodoMatriz(int x, int y, String nombreImagen, String nombreElemento, int tipo){
         
         this.abajo = null;
         this.arriba = null;
@@ -31,6 +32,7 @@ public class NodoMatriz extends JLabel{
         this.nombreImagen = nombreImagen;
         this.x = x;
         this.y = y;
+        this.tipo = tipo;
         
     }
 }

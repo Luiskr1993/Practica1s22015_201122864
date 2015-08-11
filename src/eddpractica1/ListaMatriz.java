@@ -26,9 +26,9 @@ public class ListaMatriz {
         this.contadorColumnas = 0;
     }
     
-    public void insertar(int x, int y, String nombreImagen, String nombreElemento){
+    public void insertar(int x, int y, String nombreImagen, String nombreElemento, int tipo){
         NodoMatriz nuevo;
-        nuevo = new NodoMatriz(x, y, nombreImagen, nombreElemento);
+        nuevo = new NodoMatriz(x, y, nombreImagen, nombreElemento, tipo);
         
         if(primero == null){
             primero = nuevo;

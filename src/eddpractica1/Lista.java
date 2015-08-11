@@ -87,8 +87,9 @@ public class Lista {
         else{
             
             temporal = ultimo.anterior;
-            temporal.siguiente = null;
+            //temporal.siguiente = null;
             ultimo = temporal;
+            temporal = null;
         }
         
         contadorNodos--;
@@ -123,7 +124,7 @@ public class Lista {
                 
                 if(temp == ultimo){
                     ultimo = temp.anterior;
-                    ultimo.siguiente = null;
+                    //ultimo.siguiente = null;
                 }
                 else{
                     temp2 = temp.siguiente;
